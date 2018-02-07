@@ -1,0 +1,24 @@
+{
+  "name": "@ajtii/commons",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ajtii Team <ajtii.com@gmail.com>",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "verror": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.88",
+    "@types/verror": "^1.10.1"
+  },
+  "private": true,
+  "contributors": [
+    "David Bojnansky <david.bojnansky@gmail.com>"
+  ],
+  "engines": {
+    "node": ">=8"
+  }
+}

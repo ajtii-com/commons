@@ -1,0 +1,9 @@
+node_modules/
+src/
+.editorconfig
+.gitignore
+.npmignore
+*.tgz
+tsconfig.json
+.git/
+package-lock.json

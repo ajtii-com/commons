@@ -1,6 +1,6 @@
 {
   "name": "@ajtii/commons",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,11 +14,13 @@
     "@types/node": "^6.0.88",
     "@types/verror": "^1.10.1"
   },
-  "private": true,
   "contributors": [
     "David Bojnansky <david.bojnansky@gmail.com>"
   ],
   "engines": {
     "node": ">=8"
+  },
+  "publishConfig": {
+    "registry": "http://home.net.ajtii.sk:34873"
   }
 }

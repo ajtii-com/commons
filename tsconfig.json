@@ -8,16 +8,20 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
     "target": "es5",
     "lib": [
       "es2017"
     ],
-    "strictNullChecks": true,
     "typeRoots": [
       "node_modules/@types"
     ]
   },
   "include": [
     "src/**/*.ts"
+  ],
+  "exclude": [
+    "src/**/*.spec.ts"
   ]
 }

@@ -19,6 +19,8 @@
     "dist/",
     "!dist/**/*.spec.js",
     "!dist/**/*.spec.js.map",
+    "types/",
+    "index.d.ts",
     "LICENSE",
     "README.md",
     "package.json"

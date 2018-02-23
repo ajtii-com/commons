@@ -18,4 +18,8 @@ Reusable components
 - @types/verror
 - verror
 
+### types/sequelize
+
+- @types/sequelize
+
 TODO

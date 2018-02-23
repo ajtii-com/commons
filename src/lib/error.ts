@@ -1,10 +1,11 @@
 import { VError, Options } from 'verror';
+import { stringify } from '.';
 
 export class MyError extends VError {
 
   constructor(msg: string, ...args: any[]);
-  constructor(cause: Error, msg: string, ...args: any[]);
   constructor(options: Options, msg: string, ...args: any[]);
+  constructor(cause: Error, msg: string, ...args: any[]);
   constructor(
     options: Options | string | Error,
     msg: any,
@@ -15,15 +16,7 @@ export class MyError extends VError {
     }
 
     for (let i in args) {
-      if (typeof args[i] === 'undefined') args[i] = '<undefined>';
-      else if (args[i] === null) args[i] = '<null>';
-      else if (args[i] === '') args[i] = '<empty string>';
-      // Naozaj len retazce?
-      else if (typeof args[i] === 'string' && (args[i].indexOf(' ') > -1
-          || args[i].indexOf('\'') > -1)) {
-        args[i] = args[i].replace(/'/g, '\\\'');
-        args[i] = `'${args[i]}'`;
-      }
+      args[i] = stringify(args[i]);
     }
 
     if (typeof options !== 'string')
@@ -31,5 +24,5 @@ export class MyError extends VError {
     else
       super(options, ...args);
   }
-  
-};
+
+}

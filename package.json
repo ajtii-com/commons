@@ -24,24 +24,41 @@
   ],
   "repository": "github:ajtii-com/commons",
   "scripts": {
-    "test": "tsc -p tsconfig.spec.json && mocha \"dist/**/*.spec.js\"",
+    "test": "tsc -p tsconfig.spec.json && cross-env NODE_ENV=testing mocha --require source-map-support/register dist/**/*.spec.js",
+    "coverage": "nyc npm test",
     "build": "tsc"
+  },
+  "dependencies": {
+    "@types/verror": "^1.10.1",
+    "verror": "^1.10.0"
   },
   "devDependencies": {
     "@types/chai": "^4.1.2",
     "@types/mocha": "^2.2.48",
     "@types/node": "^8.9.4",
+    "@types/sinon": "^4.1.3",
     "chai": "^4.1.2",
-    "mocha": "^5.0.1"
+    "cross-env": "^5.1.3",
+    "mocha": "^5.0.1",
+    "nyc": "^11.4.1",
+    "sinon": "^4.3.0",
+    "source-map-support": "^0.5.3"
   },
-  "optionalDependencies": {
-    "@types/verror": "^1.10.1",
-    "verror": "^1.10.0"
-  },
+  "optionalDependencies": {},
   "engines": {
     "node": ">=8"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
+  },
+  "nyc": {
+    "include": [
+      "dist/**/*.js",
+      "!dist/**/*.spec.js"
+    ],
+    "reporter": [
+      "text",
+      "lcov"
+    ]
   }
 }

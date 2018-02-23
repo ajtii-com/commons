@@ -1,5 +1,6 @@
 import { expect } from 'chai';
-import { stringify } from '.';
+import { stringify, asDefined, asValue } from '.';
+import { MyError } from './error';
 
 describe('stringify', () => {
   let r: string;
@@ -57,6 +58,60 @@ describe('stringify', () => {
 
     it(`should return "number(42)"`, () => {
       expect(r).to.eq('number(42)');
+    });
+  });
+});
+
+describe('asDefined', () => {
+  describe('when undefined passed', () => {
+    let c: () => void;
+
+    before(() => (c = () => asDefined(undefined)));
+
+    it('should throw an error', () => {
+      expect(c).to.throw(MyError, 'defined');
+    });
+  });
+
+  describe('when defined passed', () => {
+    let r: any;
+
+    before(() => r = asDefined(0));
+
+    it('should return passed', () => {
+      expect(r).to.eq(0);
+    });
+  });
+});
+
+describe('asValue', () => {
+  describe('when non-value undefined passed', () => {
+    let c: () => void;
+
+    before(() => (c = () => asValue(undefined)));
+
+    it('should throw an error', () => {
+      expect(c).to.throw(MyError, 'null');
+    });
+  });
+
+  describe('when non-value null passed', () => {
+    let c: () => void;
+
+    before(() => (c = () => asValue(null)));
+
+    it('should throw an error', () => {
+      expect(c).to.throw(MyError, 'null');
+    });
+  });
+
+  describe('when value passed', () => {
+    let r: any;
+
+    before(() => r = asValue(0));
+
+    it('should return passed', () => {
+      expect(r).to.eq(0);
     });
   });
 });

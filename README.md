@@ -6,7 +6,7 @@ Reusable components
 
 ### lib
 
-- *none*
+- *...lib/error*
 
 ### lib/env
 

@@ -1,3 +1,5 @@
+import { MyError } from './error';
+
 /**
  * Empty String
  */
@@ -32,4 +34,40 @@ export function stringify(value: any): string {
   value = value.toString().replace(/([()])/g, '\\$1');
 
   return `${type}(${value})`;
+}
+
+/**
+ * $any as defined
+ *
+ * Excludes type undefined from type union of passed value,
+ * otherwise throws an error
+ *
+ * ```ts
+ * declare let a: number | null | undefined;
+ * asDefined(a) as null;
+ * ```
+ */
+export function asDefined<T>(any: T) {
+  if (typeof any === 'undefined')
+    throw new MyError('Value must be defined');
+
+  return any;
+}
+
+/**
+ * $any as value
+ *
+ * Excludes types undefined and null from type union of passed value,
+ * otherwise throws an error
+ *
+ * ```ts
+ * declare let a: number | null | undefined;
+ * asValue(a)!;
+ * ```
+ */
+export function asValue<T>(any: T) {
+  if (typeof any === 'undefined' || any === null)
+    throw new MyError('Value must be defined and not null');
+
+  return any;
 }

@@ -18,6 +18,7 @@
   "files": [
     "dist/",
     "!dist/**/*.spec.js",
+    "!dist/**/*.spec.js.map",
     "LICENSE",
     "README.md",
     "package.json"

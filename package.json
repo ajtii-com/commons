@@ -27,8 +27,8 @@
   ],
   "repository": "github:ajtii-com/commons",
   "scripts": {
-    "test": "tsc -p tsconfig.spec.json && cross-env NODE_ENV=testing mocha --require source-map-support/register dist/**/*.spec.js",
-    "coverage": "nyc npm test",
+    "test": "tsc -p tsconfig.spec.json && cross-env NODE_ENV=testing   mocha --opts mocha.opts",
+    "coverage": "nyc   npm test",
     "build": "tsc"
   },
   "dependencies": {},
@@ -44,6 +44,7 @@
     "nyc": "^11.4.1",
     "sinon": "^4.3.0",
     "source-map-support": "^0.5.3",
+    "typescript": "^2.7.2",
     "verror": "^1.10.0"
   },
   "peerDependencies": {

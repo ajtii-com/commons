@@ -18,6 +18,10 @@ Reusable components
 - @types/verror
 - verror
 
+### types/node
+
+- @types/node
+
 ### types/sequelize
 
 - @types/sequelize

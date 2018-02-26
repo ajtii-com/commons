@@ -26,7 +26,7 @@ describe('MyError', () => {
 
       describe('when args passed', () => {
         before(() => {
-          s = spy(lib, 'stringify');
+          //s = spy(lib, 'stringify');
           e = new MyError('something went wrong; %s; %s', 42, true);
         });
 
@@ -38,12 +38,12 @@ describe('MyError', () => {
           expect(e.message).to.contain('true');
         });
 
-        it('should call stringify twice', () => {
-          expect(s.callCount).to.eq(2);
-        });
+        //it('should call stringify twice', () => {
+        //  expect(s.callCount).to.eq(2);
+        //});
 
         after(() => {
-          s.restore();
+          //s.restore();
         });
       });
     })

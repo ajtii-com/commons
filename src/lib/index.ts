@@ -1,4 +1,5 @@
 import { MyError } from './error';
+import jsStringify = require('javascript-stringify');
 
 /**
  * Empty String
@@ -31,7 +32,7 @@ export function stringify(value: any): string {
     type = 'array';
   }
 
-  value = value.toString().replace(/([()])/g, '\\$1');
+  value = jsStringify(value).replace(/([()])/g, '\\$1');
 
   return `${type}(${value})`;
 }

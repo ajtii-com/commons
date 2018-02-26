@@ -24,32 +24,32 @@ describe('stringify', () => {
   describe('when [] passed', () => {
     before(() => r = stringify([]));
 
-    it(`should return "array()"`, () => {
-      expect(r).to.eq("array()");
+    it(`should return "array([])"`, () => {
+      expect(r).to.eq("array([])");
     });
   });
 
   describe('when "(" passed', () => {
     before(() => r = stringify("("));
 
-    it(`should return "string(\\()"`, () => {
-      expect(r).to.eq("string(\\()");
+    it(`should return "string('\\(')"`, () => {
+      expect(r).to.eq("string('\\(')");
     });
   });
 
   describe('when ")" passed', () => {
     before(() => r = stringify(")"));
 
-    it(`should return "string(\\))"`, () => {
-      expect(r).to.eq("string(\\))");
+    it(`should return "string('\\)')"`, () => {
+      expect(r).to.eq("string('\\)')");
     });
   });
 
   describe('when "()" passed', () => {
     before(() => r = stringify("()"));
 
-    it(`should return "string(\\(\\))"`, () => {
-      expect(r).to.eq("string(\\(\\))");
+    it(`should return "string('\\(\\)')"`, () => {
+      expect(r).to.eq("string('\\(\\)')");
     });
   });
 

@@ -15,9 +15,9 @@ export class MyError extends VError {
       args.unshift(msg);
     }
 
-    for (let i in args) {
-      args[i] = stringify(args[i]);
-    }
+    //for (let i in args) {
+    //  args[i] = stringify(args[i]);
+    //}
 
     if (typeof options !== 'string')
       super(options, msg, ...args);

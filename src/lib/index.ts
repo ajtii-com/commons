@@ -16,6 +16,8 @@ export const ES = '';
  * "()"        => "string('\(\)')"
  * <x>         => "<type of x>(<x with escaped parenthesis>)"
  * ```
+ *
+ * Before escaping parenthesis *javascript-stringify* is applied
  */
 export function stringify(value: any): string {
   if (value === null) {

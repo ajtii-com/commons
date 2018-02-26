@@ -10,10 +10,10 @@ export const ES = '';
  * ```text
  * undefined   => "undefined"
  * null        => "null"
- * []          => "array()"
- * "("         => "string(\()"
- * ")"         => "string(\))"
- * "()"        => "string(\(\))"
+ * []          => "array([])"
+ * "("         => "string('\(')"
+ * ")"         => "string('\)')"
+ * "()"        => "string('\(\)')"
  * <x>         => "<type of x>(<x with escaped parenthesis>)"
  * ```
  */

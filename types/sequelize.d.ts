@@ -1,5 +1,3 @@
-/// <reference path='@ajtii/commons.d.ts' />
-
 import 'sequelize';
 
 declare module 'sequelize' {

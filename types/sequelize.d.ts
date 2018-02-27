@@ -1,15 +1,16 @@
 import 'sequelize';
+import { Instance } from 'sequelize';
 
 declare module 'sequelize' {
 
   interface Associations {
 
-    belongsTo<T extends Model<AnyObj, AnyObj>>(
+    belongsTo<T extends Model<Instance<AnyObj>, AnyObj>>(
       target: T,
       options?: AssociationOptionsBelongsTo
     ): T;
 
-    hasOne<T extends Model<AnyObj, AnyObj>>(
+    hasOne<T extends Model<Instance<AnyObj>, AnyObj>>(
       target: T,
       options?: AssociationOptionsHasOne
     ): T;

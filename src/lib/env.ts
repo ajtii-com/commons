@@ -1,4 +1,4 @@
-import { MyError } from './error';
+import { AjtiiError } from './error';
 
 export type Env = 'development' | 'testing' | 'production';
 
@@ -8,10 +8,10 @@ export type Env = 'development' | 'testing' | 'production';
 export const ENV = process.env.NODE_ENV as Env;
 
 if (!ENV)
-  throw new MyError("NODE_ENV is not set");
+  throw new AjtiiError("NODE_ENV is not set");
 
 if (ENV !== 'development' && ENV !== 'testing' && ENV !== 'production')
-  throw new MyError(`NODE_ENV must be one of these: development, testing
+  throw new AjtiiError(`NODE_ENV must be one of these: development, testing
       or production; %s given`, ENV);
 
 /**

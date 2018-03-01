@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { MyError } from './error';
+import { AjtiiError } from './error';
 import * as env from './env';
 
 function forgetModule() {
@@ -25,7 +25,7 @@ describe('when NODE_ENV is not set', () => {
   });
 
   it('should throw an error', () => {
-    expect(c).to.throw(MyError, 'not set');
+    expect(c).to.throw(AjtiiError, 'not set');
   });
 });
 
@@ -35,7 +35,7 @@ describe('when NODE_ENV is set to invalid value', () => {
   });
 
   it('should throw an error', () => {
-    expect(c).to.throw(MyError, 'one of these');
+    expect(c).to.throw(AjtiiError, 'one of these');
   });
 });
 

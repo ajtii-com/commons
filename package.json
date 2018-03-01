@@ -29,7 +29,7 @@
   "scripts": {
     "test": "tsc -p tsconfig.spec.json && cross-env NODE_ENV=testing   mocha --opts mocha.opts",
     "coverage": "nyc   npm test",
-    "build": "tsc"
+    "build": "tsc -p tsconfig.build.json"
   },
   "dependencies": {},
   "devDependencies": {

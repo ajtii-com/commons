@@ -1,5 +1,4 @@
 import 'sequelize';
-import { Instance } from 'sequelize';
 
 declare module 'sequelize' {
 

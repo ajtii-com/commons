@@ -4,30 +4,21 @@ Reusable components
 
 ## Optional Dependencies
 
-### lib
+### standard module (lib) - production
 
-- *...lib/error*
-
-### lib/env
-
-- @types/node
-- *...lib/error*
-
-### lib/error
-
-- @types/verror
+- javascript-stringify
 - verror
 
-### types
-
-- *...types/node*
-- *...types/sequelize*
-
-### types/node
+### standard module (lib) - development
 
 - @types/node
+- @types/verror
 
-### types/sequelize
+### sequelize module (lib/sequelize) - production
+
+- *none*
+
+### sequelize module (lib/sequelize) - development
 
 - @types/sequelize
 

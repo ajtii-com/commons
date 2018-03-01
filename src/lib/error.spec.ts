@@ -1,18 +1,18 @@
-import { MyError } from './error';
+import { AjtiiError } from './error';
 import { spy, SinonSpy } from 'sinon';
 import { expect } from 'chai';
 import * as lib from '.';
 
 let s: SinonSpy;
 
-describe('MyError', () => {
-  let e: MyError;
+describe('AjtiiError', () => {
+  let e: AjtiiError;
 
   describe('constructor', () => {
     describe('when 1st arg is message', () => {
       describe('when no args passed', () => {
         before(() => {
-          e = new MyError('something went wrong');
+          e = new AjtiiError('something went wrong');
         });
 
         it('should set message', () => {
@@ -26,8 +26,8 @@ describe('MyError', () => {
 
       describe('when args passed', () => {
         before(() => {
-          //s = spy(lib, 'stringify');
-          e = new MyError('something went wrong; %s; %s', 42, true);
+          s = spy(lib, 'stringify');
+          e = new AjtiiError('something went wrong; %s; %s', 42, true);
         });
 
         it('should set message containing 1st arg', () => {
@@ -43,7 +43,7 @@ describe('MyError', () => {
         //});
 
         after(() => {
-          //s.restore();
+          s.restore();
         });
       });
     })
@@ -52,8 +52,8 @@ describe('MyError', () => {
       let c;
 
       before(() => {
-        c = new MyError('cause');
-        e = new MyError(c, 'something went wrong');
+        c = new AjtiiError('cause');
+        e = new AjtiiError(c, 'something went wrong');
       });
 
       it('should set cause', () => {

@@ -1,7 +1,7 @@
 import { VError, Options } from 'verror';
 import { stringify } from '.';
 
-export class MyError extends VError {
+export class AjtiiError extends VError {
 
   constructor(msg: string, ...args: any[]);
   constructor(options: Options, msg: string, ...args: any[]);

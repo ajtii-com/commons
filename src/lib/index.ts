@@ -74,3 +74,20 @@ export function asValue<T>(any: T) {
 
   return any;
 }
+
+/**
+ * $value is T
+ *
+ * Checks (at compile-time only) if passed value is T and returns
+ * the value
+ *
+ * ```ts
+ * is<keyof Fakturace_PolozkaFakturyPrijateAttrs>('_commission');
+ * // is shortcut for
+ * let dbColName: keyof Fakturace_PolozkaFakturyPrijateAttrs = '_commission';
+ * dbColName;
+ * ```
+ */
+export function is<T>(value: T) {
+  return value;
+}

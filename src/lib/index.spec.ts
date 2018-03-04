@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { stringify, asDefined, asValue } from '.';
+import { stringify, asDefined, asValue, is } from '.';
 import { AjtiiError } from './error';
 
 describe('stringify', () => {
@@ -113,5 +113,11 @@ describe('asValue', () => {
     it('should return passed', () => {
       expect(r).to.eq(0);
     });
+  });
+});
+
+describe('is', () => {
+  it('should return passed value', () => {
+    expect(is(42)).to.eq(42);
   });
 });

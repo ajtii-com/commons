@@ -4,12 +4,12 @@ declare module 'sequelize' {
 
   interface Associations {
 
-    belongsTo<T extends Model<Instance<object>, object>>(
+    belongsTo<T extends Model<any, any>>(
       target: T,
       options?: AssociationOptionsBelongsTo
     ): T;
 
-    hasOne<T extends Model<Instance<object>, object>>(
+    hasOne<T extends Model<any, any>>(
       target: T,
       options?: AssociationOptionsHasOne
     ): T;

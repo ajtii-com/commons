@@ -27,9 +27,10 @@
   ],
   "repository": "github:ajtii-com/commons",
   "scripts": {
-    "test": "tsc -p tsconfig.spec.json && cross-env NODE_ENV=testing   mocha --opts mocha.opts",
-    "coverage": "nyc   npm test",
-    "build": "tsc -p tsconfig.build.json"
+    "build": "tsc -p tsconfig.build.json",
+    "build-test": "tsc -p tsconfig.spec.json",
+    "test": "npm run build-test && cross-env NODE_ENV=testing   mocha --opts mocha.opts",
+    "test-cov": "nyc   npm test"
   },
   "dependencies": {},
   "devDependencies": {
@@ -41,16 +42,15 @@
     "@types/verror": "^1.10.3",
     "chai": "^4.1.2",
     "cross-env": "^5.1.3",
+    "javascript-stringify": "^1.6.0",
     "mocha": "^5.0.1",
     "nyc": "^11.4.1",
     "sinon": "^4.3.0",
     "source-map-support": "^0.5.3",
-    "typescript": "^2.7.2"
-  },
-  "optionalDependencies": {
-    "javascript-stringify": "^1.6.0",
+    "typescript": "^2.7.2",
     "verror": "^1.10.0"
   },
+  "optionalDependencies": {},
   "engines": {
     "node": ">=8"
   },

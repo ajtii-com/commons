@@ -6,6 +6,7 @@
     "sourceMap": true,
     "declaration": true,
     "moduleResolution": "node",
+    "noEmit": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "strict": true,
@@ -14,12 +15,11 @@
       "es2017"
     ],
     "typeRoots": [
-      "node_modules/@types"
+      "node_modules/@types/"
     ]
   },
   "include": [
-    "src/**/*.ts",
-    "index.d.ts"
+    "src/**/*.ts"
   ],
   "exclude": []
 }

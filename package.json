@@ -19,18 +19,15 @@
     "dist/",
     "!dist/**/*.spec.js",
     "!dist/**/*.spec.js.map",
-    "types/",
-    "index.d.ts",
     "LICENSE",
     "README.md",
     "package.json"
   ],
   "repository": "github:ajtii-com/commons",
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
-    "build-test": "tsc -p tsconfig.spec.json",
-    "test": "npm run build-test && cross-env NODE_ENV=testing   mocha --opts mocha.opts",
-    "test-cov": "nyc   npm test"
+    "build": "rimraf dist/ && tsc -p tsconfig.build.json && copyfiles -u 2 src/types/**/*.d.ts dist/types/",
+    "test": "yarn build && tsc -p tsconfig.test.json && cross-env NODE_ENV=testing   mocha --opts mocha.opts",
+    "test-cov": "nyc   yarn test"
   },
   "dependencies": {},
   "devDependencies": {
@@ -41,14 +38,17 @@
     "@types/sinon": "^4.1.3",
     "@types/verror": "^1.10.3",
     "chai": "^4.1.2",
+    "copyfiles": "^2.0.0",
     "cross-env": "^5.1.3",
     "javascript-stringify": "^1.6.0",
-    "mocha": "^5.0.1",
+    "mocha": "^5.0.3",
     "nyc": "^11.4.1",
+    "rimraf": "^2.6.2",
     "sinon": "^4.3.0",
     "source-map-support": "^0.5.3",
     "typescript": "^2.7.2",
-    "verror": "^1.10.0"
+    "verror": "^1.10.0",
+    "yarn": "^1.5.1"
   },
   "optionalDependencies": {},
   "engines": {
@@ -57,12 +57,16 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
-  "types": "index.d.ts",
+  "types": "dist/types/index.d.ts",
   "nyc": {
     "include": [
-      "dist/**/*.js",
-      "!dist/**/*.spec.js"
+      "dist/**/*.js"
     ],
+    "exclude": [
+      "dist/**/*.spec.js"
+    ],
+    "cache": true,
+    "all": true,
     "reporter": [
       "text",
       "lcov"

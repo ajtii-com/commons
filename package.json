@@ -20,12 +20,12 @@
     "!dist/**/*.spec.js",
     "!dist/**/*.spec.js.map",
     "LICENSE",
-    "README.md",
-    "package.json"
+    "package.json",
+    "README.md"
   ],
   "repository": "github:ajtii-com/commons",
   "scripts": {
-    "build": "rimraf dist/ && tsc -p tsconfig.build.json && copyfiles -u 2 src/types/**/*.d.ts dist/types/",
+    "build": "rimraf dist/ && tsc -p tsconfig.build.json && copyfiles -u 2 src/types/**/*.d.ts dist/types/ && npm pack",
     "test": "yarn build && tsc -p tsconfig.test.json && cross-env NODE_ENV=testing   mocha --opts mocha.opts",
     "test-cov": "nyc   yarn test"
   },

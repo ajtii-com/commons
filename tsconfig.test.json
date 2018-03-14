@@ -1,11 +1,6 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "declaration": false,
     "noEmit": false
-  },
-  "include": [
-    "src/**/*.spec.ts",
-    "src/types/**/*.d.ts"
-  ]
+  }
 }

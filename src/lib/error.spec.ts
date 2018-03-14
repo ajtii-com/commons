@@ -46,7 +46,7 @@ describe('AjtiiError', () => {
           s.restore();
         });
       });
-    })
+    });
 
     describe('when 1st arg is cause (or hypotetically options)', () => {
       let c;

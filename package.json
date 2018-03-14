@@ -1,6 +1,6 @@
 {
   "name": "@ajtii/commons",
-  "version": "0.1.0-alpha",
+  "version": "0.1.0",
   "description": "Reusable components",
   "keywords": [
     "ajtii",
@@ -17,16 +17,16 @@
   ],
   "files": [
     "dist/",
-    "!dist/**/*.spec.js",
-    "!dist/**/*.spec.js.map",
+    "!dist/**/*.spec.*",
+    "!dist/spec.*",
     "LICENSE",
     "package.json",
     "README.md"
   ],
   "repository": "github:ajtii-com/commons",
   "scripts": {
-    "build": "rimraf dist/ && tsc -p tsconfig.build.json && copyfiles -u 2 src/types/**/*.d.ts dist/types/ && npm pack",
-    "test": "yarn build && tsc -p tsconfig.test.json && cross-env NODE_ENV=testing   mocha --opts mocha.opts",
+    "build": "rimraf dist/ && tsc -p tsconfig.build.json && copyfiles -u 2 src/types/**/*.d.ts dist/types/",
+    "test": "rimraf dist/ && tsc -p tsconfig.test.json && copyfiles -u 2 src/types/**/*.d.ts dist/types/ && cross-env NODE_ENV=testing   mocha --opts mocha.opts",
     "test-cov": "nyc   yarn test"
   },
   "dependencies": {},

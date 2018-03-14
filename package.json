@@ -63,7 +63,8 @@
       "dist/**/*.js"
     ],
     "exclude": [
-      "dist/**/*.spec.js"
+      "dist/**/*.spec.js",
+      "dist/spec.js"
     ],
     "cache": true,
     "all": true,

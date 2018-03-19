@@ -1,6 +1,5 @@
 import { expect } from 'chai';
 import { stringify, asDefined, asValue, is } from '.';
-import { AjtiiError } from './error';
 
 describe('stringify', () => {
   let r: string;
@@ -69,7 +68,7 @@ describe('asDefined', () => {
     before(() => (c = () => asDefined(undefined)));
 
     it('should throw an error', () => {
-      expect(c).to.throw(AjtiiError, 'defined');
+      expect(c).to.throw(TypeError, 'defined');
     });
   });
 
@@ -91,7 +90,7 @@ describe('asValue', () => {
     before(() => (c = () => asValue(undefined)));
 
     it('should throw an error', () => {
-      expect(c).to.throw(AjtiiError, 'null');
+      expect(c).to.throw(TypeError, 'null');
     });
   });
 
@@ -101,7 +100,7 @@ describe('asValue', () => {
     before(() => (c = () => asValue(null)));
 
     it('should throw an error', () => {
-      expect(c).to.throw(AjtiiError, 'null');
+      expect(c).to.throw(TypeError, 'null');
     });
   });
 

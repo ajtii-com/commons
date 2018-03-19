@@ -1,4 +1,3 @@
-import { AjtiiError } from './error';
 import jsStringify = require('javascript-stringify');
 
 /**
@@ -52,7 +51,7 @@ export function stringify(value: any): string {
  */
 export function asDefined<T>(any: T) {
   if (typeof any === 'undefined')
-    throw new AjtiiError('Value must be defined');
+    throw new TypeError('Value must be defined');
 
   return any;
 }
@@ -70,7 +69,7 @@ export function asDefined<T>(any: T) {
  */
 export function asValue<T>(any: T) {
   if (typeof any === 'undefined' || any === null)
-    throw new AjtiiError('Value must be defined and not null');
+    throw new TypeError('Value must be defined and not null');
 
   return any;
 }

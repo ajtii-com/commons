@@ -7,12 +7,17 @@ Reusable components
 ### standard module (lib) - production
 
 - javascript-stringify
+- request
+- request-promise
 - verror
+- winston
 
 ### standard module (lib) - development
 
 - @types/node
+- @types/request-promise
 - @types/verror
+- @types/winston
 
 ### sequelize module (lib/sequelize) - production
 

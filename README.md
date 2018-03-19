@@ -7,6 +7,7 @@ Reusable components
 ### standard module (lib) - production
 
 - javascript-stringify
+- moment
 - request
 - request-promise
 - verror

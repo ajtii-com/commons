@@ -1,5 +1,4 @@
 import { expect } from 'chai';
-import { AjtiiError } from './error';
 import * as env from './env';
 
 function forgetModule() {

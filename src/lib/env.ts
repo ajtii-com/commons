@@ -1,9 +1,7 @@
-import { AjtiiError } from './error';
-
 export type Env = 'development' | 'testing' | 'production';
 
 /**
- * SRV_ENV
+ * process.env.SRV_ENV
  *
  * Default: development
  */

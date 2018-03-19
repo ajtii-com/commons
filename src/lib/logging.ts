@@ -177,3 +177,8 @@ export namespace RemTransport {
   }
 
 }
+
+export function err2msg(err: Error) {
+  return (err.code ? `${err.code}: ` : '')
+      + (err.stack || `${err.name}: ${err.message}`);
+}

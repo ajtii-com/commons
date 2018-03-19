@@ -1,6 +1,12 @@
 import '../spec';
-import { expect } from 'chai';
-import { Logger, MAIN_LOGGER, REM_LOGGER, RemTransport } from './logging';
+import { expect, use } from 'chai';
+import {
+  Logger,
+  MAIN_LOGGER,
+  REM_LOGGER,
+  RemTransport,
+  err2msg,
+} from './logging';
 import { Logger as WLogger } from 'winston';
 import * as logging from './logging';
 import { spy, SinonSpy } from 'sinon';
@@ -8,6 +14,9 @@ import * as nock from 'nock';
 import { Scope, restore, cleanAll, activate } from 'nock';
 import { RequestError } from 'request-promise/errors';
 import { is } from '.';
+import chaiStr = require('chai-string');
+
+use(chaiStr);
 
 describe('MAIN_LOGGER', () => {
   it('should have a logger instance set', () => {
@@ -136,6 +145,80 @@ describe('RemTransport', () => {
       it('should call back with error', () => {
         expect(cbSpy.args[0][0]).to.be.an.instanceOf(RequestError);
       });
+    });
+  });
+});
+
+describe('err2msg', () => {
+  let r: string;
+  let err: Error;
+
+  describe('when error code and stack is present', () => {
+    before(() => {
+      try {
+        throw new Error('error occurred');
+      } catch (e) {
+        expect(e.stack).is.not.null;
+        e.code = 'XYZ';
+        err = e;
+        r = err2msg(e);
+      }
+    });
+
+    it('should contain code', () => {
+      expect(r).to.contain(err.code!);
+    });
+
+    it('should contain stack', () => {
+      expect(r).to.contain(err.stack!);
+    });
+
+    it('should be in format: $code: $stack', () => {
+      expect(r).to.equal(`${err.code!}: ${err.stack}`);
+    });
+  });
+
+  describe('when error code is missing and stack is present', () => {
+    let r: string;
+
+    before(() => {
+      try {
+        throw new Error('error occurred');
+      } catch (e) {
+        expect(e.stack).is.not.null;
+        err = e;
+        r = err2msg(e);
+      }
+    });
+
+    it('should return stack only', () => {
+      expect(r).to.equal(err.stack);
+    });
+  });
+
+  describe('when error code and stack is missing', () => {
+    let r: string;
+
+    before(() => {
+      try {
+        throw new Error('error occurred');
+      } catch (e) {
+        e.stack = undefined;
+        err = e;
+        r = err2msg(e);
+      }
+    });
+
+    it('should contain name', () => {
+      expect(r).to.contain(err.name);
+    });
+
+    it('should contain message', () => {
+      expect(r).to.contain(err.message);
+    });
+
+    it('should be in format: $name: $message', () => {
+      expect(r).to.equal(`${err.name}: ${err.message}`);
     });
   });
 });

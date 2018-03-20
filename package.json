@@ -2,19 +2,14 @@
   "name": "@ajtii/commons",
   "version": "0.1.0",
   "description": "Reusable components",
-  "keywords": [
-    "ajtii",
-    "commons"
-  ],
+  "keywords": ["ajtii", "commons"],
   "homepage": "https://github.com/ajtii-com/commons#readme",
   "bugs": {
     "url": "https://github.com/ajtii-com/commons/issues"
   },
   "license": "MIT",
   "author": "Ajtii Team <ajtii.com@gmail.com>",
-  "contributors": [
-    "David Bojnansky <david.bojnansky@gmail.com>"
-  ],
+  "contributors": ["David Bojnansky <david.bojnansky@gmail.com>"],
   "files": [
     "dist/",
     "!dist/**/*.spec.*",
@@ -25,18 +20,13 @@
   ],
   "repository": "github:ajtii-com/commons",
   "scripts": {
-    "build": "rimraf dist/ && tsc -p tsconfig.build.json && copyfiles -u 2 src/types/**/*.d.ts dist/types/",
-    "test": "rimraf dist/ && tsc -p tsconfig.test.json && copyfiles -u 2 src/types/**/*.d.ts dist/types/ && cross-env NODE_ENV=testing   mocha --opts mocha.opts",
+    "build":
+      "rimraf dist/ && tsc -p tsconfig.build.json && copyfiles -u 2 src/types/**/*.d.ts dist/types/",
+    "test":
+      "rimraf dist/ && tsc -p tsconfig.test.json && copyfiles -u 2 src/types/**/*.d.ts dist/types/ && cross-env NODE_ENV=testing   mocha --opts mocha.opts",
     "cov": "nyc   yarn test"
   },
-  "dependencies": {
-    "javascript-stringify": "^1.6.0",
-    "moment": "^2.21.0",
-    "request": "^2.85.0",
-    "request-promise": "^4.2.2",
-    "verror": "^1.10.0",
-    "winston": "^2.4.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/chai": "^4.1.2",
     "@types/chai-string": "^1.4.0",
@@ -52,13 +42,19 @@
     "chai-string": "^1.4.0",
     "copyfiles": "^2.0.0",
     "cross-env": "^5.1.3",
+    "javascript-stringify": "^1.6.0",
     "mocha": "^5.0.3",
+    "moment": "^2.21.0",
     "nock": "^9.2.3",
     "nyc": "^11.4.1",
     "rimraf": "^2.6.2",
+    "request": "^2.85.0",
+    "request-promise": "^4.2.2",
     "sinon": "^4.3.0",
     "source-map-support": "^0.5.3",
     "typescript": "^2.7.2",
+    "verror": "^1.10.0",
+    "winston": "^2.4.1",
     "yarn": "^1.5.1"
   },
   "optionalDependencies": {},
@@ -70,18 +66,14 @@
   },
   "types": "dist/types/index.d.ts",
   "nyc": {
-    "include": [
-      "dist/**/*.js"
-    ],
-    "exclude": [
-      "dist/**/*.spec.js",
-      "dist/spec.js"
-    ],
+    "include": ["dist/**/*.js"],
+    "exclude": ["dist/**/*.spec.js", "dist/spec.js"],
     "cache": true,
     "all": true,
-    "reporter": [
-      "text",
-      "lcov"
-    ]
+    "reporter": ["text", "lcov"]
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "trailingComma": "all"
   }
 }

@@ -4,28 +4,43 @@ Reusable components
 
 ## Optional Dependencies
 
-### standard module (lib) - production
+### <a name="lib"></a> lib
 
-- javascript-stringify
-- moment
-- request
-- request-promise
-- verror
-- winston
+* javascript-stringify
 
-### standard module (lib) - development
+### <a name="lib-env"></a> lib/env
 
-- @types/node
-- @types/request-promise
-- @types/verror
-- @types/winston
+### <a name="lib-error"></a> lib/error
 
-### sequelize module (lib/sequelize) - production
+* [lib](#lib)
+* verror _(@types/verror)_
 
-- *none*
+### <a name="lib-logging"></a> lib/logging
 
-### sequelize module (lib/sequelize) - development
+* [lib](#lib)
+* moment
+* request
+* request-promise _(@types/request-promise)_
+* winston _(@types/winston)_
 
-- @types/sequelize
+### <a name="lib-terminator"></a> lib/terminator
+
+* [lib/logging](#lib-logging)
+
+### <a name="types"></a> types
+
+* [types/@ajtii/commons](#types-ajtii-commons)
+* [types/node](#types-node)
+* [types/sequelize](#types-sequelize)
+
+### <a name="types-ajtii-commons"></a> types/@ajtii/commons
+
+### <a name="types-node"></a> types/node
+
+* @types/node
+
+### <a name="types-sequelize"></a> types/sequelize
+
+* @types/sequelize
 
 TODO

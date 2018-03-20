@@ -25,7 +25,10 @@ Reusable components
 
 ### <a name="lib-terminator"></a> lib/terminator
 
+* dependency-graph
+* [lib/error](#lib-error)
 * [lib/logging](#lib-logging)
+* lodash _(@types/lodash)_
 
 ### <a name="types"></a> types
 

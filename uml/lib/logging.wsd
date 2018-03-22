@@ -1,0 +1,18 @@
+@startuml logging
+
+package logging {
+  class Terminator {
+    + isRunning
+    + isTerminating
+    + {static} getInstance(signals)
+    + addListener(name, listener, after)
+    + rmListener(name)
+    + terminate()
+  }
+
+  note bottom of Terminator
+    - isRunning and isTerminating cannot be set
+  end note
+}
+
+@enduml

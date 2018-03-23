@@ -58,6 +58,7 @@
     "rimraf": "^2.6.2",
     "sinon": "^4.3.0",
     "source-map-support": "^0.5.3",
+    "tslint-config-prettier": "^1.10.0",
     "typescript": "^2.7.2",
     "verror": "^1.10.0",
     "winston": "^2.4.1",

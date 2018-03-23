@@ -188,29 +188,30 @@ export class Terminator {
           // because it is chain of promises p
         });
 
-      p
-        .then((eCount) => {
-          if (eCount) {
-            LOGGER.rem.warn("-4 Gracefully terminated with %d errors", eCount);
-            process.exit(1);
-          } else {
-            LOGGER.rem.info("-4 Gracefully terminated");
-            process.exit(0);
-          }
-        })
-        .catch((e) => {
-          if (e instanceof Error) {
-            LOGGER.rem.error("-4 Graceful termination failed; %s", err2msg(e), {
-              e,
-            });
-          } else {
-            LOGGER.rem.error("-4 Graceful termination failed; %s", e, { e });
-          }
-
-          process.exit(2);
-        });
+      p.then((eCount) => {
+        if (eCount) {
+          LOGGER.rem.warn("-4 Gracefully terminated with %d errors", eCount);
+          process.exit(1);
+        } else {
+          LOGGER.rem.info("-4 Gracefully terminated");
+          process.exit(0);
+        }
+      });
+      // USELESS: I realized this is never called
+      //
+      // .catch((e) => {
+      //   if (e instanceof Error) {
+      //     LOGGER.rem.error("-4 Graceful termination failed; %s", err2msg(e), {
+      //       e,
+      //     });
+      //   } else {
+      //     LOGGER.rem.error("-4 Graceful termination failed; %s", e, { e });
+      //   }
+      //
+      //   process.exit(2);
+      // });
     } else {
-      LOGGER.main.warn("Termination process is already running");
+      LOGGER.main.debug("Termination process is already running");
     }
   }
 }

@@ -2,19 +2,14 @@
   "name": "@ajtii/commons",
   "version": "0.1.0",
   "description": "Reusable components",
-  "keywords": [
-    "ajtii",
-    "commons"
-  ],
+  "keywords": ["ajtii", "commons"],
   "homepage": "https://github.com/ajtii-com/commons#readme",
   "bugs": {
     "url": "https://github.com/ajtii-com/commons/issues"
   },
   "license": "MIT",
   "author": "Ajtii Team <ajtii.com@gmail.com>",
-  "contributors": [
-    "David Bojnansky <david.bojnansky@gmail.com>"
-  ],
+  "contributors": ["David Bojnansky <david.bojnansky@gmail.com>"],
   "files": [
     "dist/",
     "!dist/**/*.spec.*",
@@ -25,9 +20,12 @@
   ],
   "repository": "github:ajtii-com/commons",
   "scripts": {
-    "build": "rimraf dist/ && tsc -p tsconfig.build.json && copyfiles -u 2 src/types/**/*.d.ts dist/types/",
-    "test": "rimraf dist/ && tsc -p tsconfig.test.json && copyfiles -u 2 src/types/**/*.d.ts dist/types/ && cross-env NODE_ENV=testing   mocha --opts mocha.opts",
-    "cov": "nyc   yarn test"
+    "build":
+      "rimraf dist/ && tsc -p tsconfig.build.json && copyfiles -u 2 src/types/**/*.d.ts dist/types/",
+    "test":
+      "rimraf dist/ && tsc -p tsconfig.test.json && copyfiles -u 2 src/types/**/*.d.ts dist/types/ && cross-env NODE_ENV=testing   mocha --opts mocha.opts",
+    "cov": "nyc   yarn test",
+    "pub": "yarn build && npm publish"
   },
   "dependencies": {},
   "devDependencies": {
@@ -69,23 +67,16 @@
     "node": ">=8"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org"
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
   },
   "types": "dist/types/index.d.ts",
   "nyc": {
-    "include": [
-      "dist/**/*.js"
-    ],
-    "exclude": [
-      "dist/**/*.spec.js",
-      "dist/spec.js"
-    ],
+    "include": ["dist/**/*.js"],
+    "exclude": ["dist/**/*.spec.js", "dist/spec.js"],
     "cache": true,
     "all": true,
-    "reporter": [
-      "text",
-      "lcov"
-    ]
+    "reporter": ["text", "lcov"]
   },
   "prettier": {
     "arrowParens": "always",
